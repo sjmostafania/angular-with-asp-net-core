@@ -1,0 +1,14 @@
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.deps.json
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeconfig.json
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeconfig.dev.json
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.dll
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.csproj.CoreCompileInputs.cache
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cache
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cs
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.AssemblyInfoInputs.cache
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.AssemblyInfo.cs
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorTargetAssemblyInfo.cache
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.pdb
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.dll
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.pdb
+D:\Docs\AngularProjects\AngularAndWebApiCore\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.csprojAssemblyReference.cache
