@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@Angular/common/http';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly EndPoint = "http://localhost:55889/api";
+  readonly EndPoint = 'http://localhost:55889/api';
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -23,29 +23,30 @@ export class UserService {
   });
 
   comparePasswords(fb: FormGroup) {
-    let confirmPswrdCtrl = fb.get('ConfirmPassword');
-    //passwordMismatch
-    //confirmPswrdCtrl.errors={passwordMismatch:true}
+    const confirmPswrdCtrl = fb.get('ConfirmPassword');
+    // passwordMismatch
+    // confirmPswrdCtrl.errors={passwordMismatch:true}
     if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
-      if (fb.get('Password').value != confirmPswrdCtrl.value)
+      if (fb.get('Password').value !== confirmPswrdCtrl.value) {
         confirmPswrdCtrl.setErrors({ passwordMismatch: true });
-      else
+      } else {
         confirmPswrdCtrl.setErrors(null);
+      }
     }
   }
 
   register() {
-    var body = {
+    const body = {
       UserName: this.formModel.value.UserName,
       Email: this.formModel.value.Email,
       FullName: this.formModel.value.FullName,
       Password: this.formModel.value.Passwords.Password,
     };
-    return this.http.post(`${this.EndPoint}${'/ApplicationUser/Register'}`, body)
+    return this.http.post(`${this.EndPoint}${'/ApplicationUser/Register'}`, body);
   }
 
   login(formData) {
-    return this.http.post(`${this.EndPoint}${'/ApplicationUser/Login'}`, formData)
+    return this.http.post(`${this.EndPoint}${'/ApplicationUser/Login'}`, formData);
   }
 
   getUserProfile() {
