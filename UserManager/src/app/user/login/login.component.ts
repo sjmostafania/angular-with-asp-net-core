@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
     this.service.login(form.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
-        this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/home');
       },
-      err => {
+       err => {
         if (err.status == 400)
           this.toaster.error('Incorrect username or password.', 'Authentication faild.');
         else

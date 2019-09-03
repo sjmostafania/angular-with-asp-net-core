@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import {
-    HttpInterceptor,
-    HttpRequest,
-    HttpResponse,
-    HttpHandler,
-    HttpEvent,
-    HttpErrorResponse
-} from '@angular/common/http';
+
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import {
+    HttpInterceptor,
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpResponse,
+    HttpErrorResponse
+} from '@angular/common/http';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {

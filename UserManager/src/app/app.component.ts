@@ -10,12 +10,13 @@ import { UserService } from './shared/user.service';
 export class AppComponent {
   title = 'UserManager';
   userDetails;
-
+ 
   constructor(private router: Router, private service: UserService) { }
 
   ngOnInit() {
     this.service.getUserProfile().subscribe(res => {
       this.userDetails = res;
+      console.log('userDetail:', this.userDetails);
     },
       err => {
         console.log(err);

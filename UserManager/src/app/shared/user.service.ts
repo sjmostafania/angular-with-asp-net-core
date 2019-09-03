@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@Angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Users } from '../models/users';
 
 
 @Injectable({
@@ -50,6 +51,6 @@ export class UserService {
   }
 
   getUserProfile() {
-    return this.http.get(`${this.EndPoint}${'/UserProfile'}`);
+    return this.http.get<Users>(`${this.EndPoint}${'/UserProfile'}`);
   }
 }

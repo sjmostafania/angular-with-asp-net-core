@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 body{
-    background-color: #04c582;;
+    font-family: Roboto;
+    background-color: #04c582!important;
 }
 
 input.form-control,input.form-control:focus{
@@ -93,3 +96,81 @@ div.form-group.required>label:first-child:after{
     text-transform: uppercase;
     font-size: 0.9rem;
  }
+
+ .top-panel{
+    display: inline !important;
+    padding: 2rem !important;
+    }
+    
+    .primary-color {
+        color: #3F51B5!important;
+      }
+    .accent-color {
+        color: #FF4081!important;
+      }
+    .background-primary-color {
+        background-color: #3F51B5!important;
+      }
+    .background-accent-color {
+        background-color: #FF4081!important;
+      }
+    .white-text {
+        color: #FFF!important;
+    } 
+    
+    .ag-pinned-cols-viewport {
+        float: left;
+        position: absolute;
+        overflow: hidden;
+       }
+       .mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+         color: aliceblue !important;
+       }
+       .mat-expansion-panel-header:not([aria-disabled=true]) {
+         background:#550fd6 !important;
+       }
+       .mat-expansion-panel-body{
+         padding-top: 2rem !important;
+       }
+       #btn-add,#btn-loadAll{
+        margin-right: 1rem;
+    
+       }
+       .mat-expansion-indicator::after, .mat-expansion-panel-header-description{
+        color: rgba(255, 249, 249, 0.54);
+       }
+    
+       .container  {
+        display: flex;
+        position: absolute;
+        top: 5rem;
+        left: 5rem;
+        height: 100%;
+        width: 100%;
+      }
+      
+      .container .row {
+        margin: 0 auto;
+      }
+    
+    
+    .basic-container {
+      padding: 30px;
+    }
+    
+    .version-info {
+      font-size: 8pt;
+      float: right;
+    }
+    
+    table {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        min-width: 500px;
+    }
+     
+    th.mat-header-cell {
+        text-align: left;
+        max-width: 300px;
+    }
