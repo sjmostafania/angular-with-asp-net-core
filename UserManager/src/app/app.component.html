@@ -1,4 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-loader></app-loader>
+
 <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
   <i class="fa fa-user-circle fa-2x" aria-hidden="true" style="color: white"></i>
   <a class="navbar-branch text-white">Welcom <strong></strong></a>
@@ -12,21 +14,21 @@
         <a class="nav-link" href="#" routerLink='home' routerLinkActive='active'>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Page 1</a>
+        <a class="nav-link" href="#" routerLink=''>Page 1</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Page 2</a>
+        <a class="nav-link" href="#" routerLink=''>Page 2</a>
       </li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="" routerLink='/user/registration' ><i class="fa fa-user-o" aria-hidden="true"></i>Sign Up</a>
+        <a class="nav-link" href="" routerLink='/user/registration' *ngIf="ishidden"><i class="fa fa-user-o" aria-hidden="true" ></i>Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" routerLink='/user/login' ><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+        <a class="nav-link" href="" routerLink='/user/login' *ngIf="ishidden"><i class="fa fa-sign-in" aria-hidden="true" ></i> Login</a>
       </li>
     </ul>
   </div>
-  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()"> Logout</button>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()" *ngIf="!ishidden"> Logout</button>
 </nav>
 <router-outlet></router-outlet>

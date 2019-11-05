@@ -6,9 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using NLog;
 using System;
+using System.IO;
 using System.Text;
+using WebApi.Business;
+using WebApi.Business.Services;
 using WebApi.Models;
 
 namespace WebApi
@@ -17,6 +22,7 @@ namespace WebApi
     {
         public Startup(IConfiguration configuration)
         {
+            //LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
 
@@ -29,14 +35,22 @@ namespace WebApi
             //Inject AppSettins
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddDbContext<AuthenticationContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                      options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>()
-                    .AddEntityFrameworkStores<AuthenticationContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
+            // BlogContext from Ticket project
+            services.AddEntityFrameworkSqlServer()
+                    .AddDbContext<BlogContext>(options =>
+                     options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"), o => o.MigrationsAssembly("BlogContext"))
+            );
+            services.AddMvc();
+            services.AddSingleton<ILoggerManager, LoggerManagerService>();
+
+            services.AddScoped<Iticket, TicketService>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -49,8 +63,7 @@ namespace WebApi
             );
             services.AddCors();
 
-            //JWT Authentication
-
+            // JWT Authentication
             var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings:JWT_Secret"].ToString());
 
             services.AddAuthentication(x =>
@@ -85,6 +98,7 @@ namespace WebApi
                 }
             });
 
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -95,6 +109,7 @@ namespace WebApi
                         .AllowAnyMethod()
                         );
             app.UseAuthentication();
+            //app.UseMiddleware();
             app.UseMvc();
         }
     }

@@ -19,7 +19,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         //GET : /api/UserProfile
         public async Task<Object> GetUserProfile()
         {
@@ -27,6 +27,7 @@ namespace WebApi.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             return new
             {
+                user.Id,
                 user.FullName,
                 user.Email,
                 user.UserName

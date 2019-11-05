@@ -10,20 +10,26 @@ import { UserService } from './shared/user.service';
 export class AppComponent {
   title = 'UserManager';
   userDetails;
+  ishidden = true;
  
   constructor(private router: Router, private service: UserService) { }
 
   ngOnInit() {
-    this.service.getUserProfile().subscribe(res => {
-      this.userDetails = res;
-      console.log('userDetail:', this.userDetails);
-    },
-      err => {
-        console.log(err);
-      });
+    if(localStorage.getItem('token')){
+      this.ishidden = false;
+    }
+
+    // this.service.getUserProfile().subscribe(res => {
+    //   this.userDetails = res;
+    //   console.log('userDetail:', this.userDetails);
+    // },
+    //   err => {
+    //     console.log(err);
+    //   });
   }
   onLogout() {
     localStorage.removeItem('token');
+    location.reload();
     this.router.navigate(['/user/login']);
   }
 }

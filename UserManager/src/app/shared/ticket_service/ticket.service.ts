@@ -8,14 +8,14 @@ import { Ticket } from '../../models/ticket';
 
 
 
-// const httpOptions = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({ providedIn: 'root' })
 export class TicketService {
 
-  private ticketsUrl = 'api/';  // URL to web api
+  private ticketsUrl = 'http://localhost:55889/api/Ticket';  // URL to web api
   ticketId: Ticket;
   ticketIds=[];
   constructor(private http: HttpClient) { }
@@ -23,7 +23,7 @@ export class TicketService {
   /** GET tickets from the server */
   loadAllTickets(): Observable<Ticket[]> {
     debugger;
-    return this.http.get<Ticket[]>(`${this.ticketsUrl}${'tickets'}`)
+    return this.http.get<Ticket[]>(`${this.ticketsUrl}`)
       .pipe(
         catchError(this.handleError('getTickets', []))
       );
@@ -67,24 +67,24 @@ export class TicketService {
   /** POST: add a new ticket to the server */
   addTickets(ticket: Ticket): Observable<Ticket> {
     debugger;
-    return this.http.post<Ticket>(`${this.ticketsUrl}${'tickets'}`, ticket).pipe(
+    return this.http.post<Ticket>(`${this.ticketsUrl}${'/AddTicket'}`, ticket).pipe(
       catchError(this.handleError<Ticket>('addTickets'))
     );
   }
 
   /** DELETE: delete the ticket from the server */
   deleteTickets(ticket: Ticket | number): Observable<Ticket> {
+    debugger;
     const id = typeof ticket === 'number' ? ticket : ticket.id;
-    const url = `${this.ticketsUrl}${'tickets'}/${id}`;
+    const url = `${this.ticketsUrl}${'/RemoveTicket?id='}${id}`;
 
-    return this.http.delete<Ticket>(url).pipe(
-      catchError(this.handleError<Ticket>('deleteTickets'))
-    );
+    return this.http.delete<Ticket>(url);
   }
 
   /** PUT: update the ticket on the server */
   updateTickets(ticket: Ticket): Observable<any> {
-    return this.http.put(this.ticketsUrl, ticket).pipe(
+
+    return this.http.put(`${this.ticketsUrl}${'/EditTicket'}`, ticket).pipe(
       catchError(this.handleError<any>('updateTickets'))
     );
   }
@@ -112,7 +112,7 @@ export class TicketService {
     
 
     let columns = [
-      { columnDef: 'select', header: 'Action', cell: () => `` },
+      // { columnDef: 'select', header: 'Action', cell: () => `` },
       { columnDef: 'id', header: 'No.', cell: (ticket: Ticket) => `${ticket.id}` },
       { columnDef: 'title', header: 'Title', cell: (ticket: Ticket) => `${ticket.title}` },
       { columnDef: 'assignedTo', header: 'Assigned To', cell: (ticket: Ticket) => `${ticket.assignedTo}` },

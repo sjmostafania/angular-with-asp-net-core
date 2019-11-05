@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 
-
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, finalize } from 'rxjs/operators';
 import {
-    HttpInterceptor,
-    HttpRequest,
-    HttpHandler,
-    HttpEvent,
-    HttpResponse,
-    HttpErrorResponse
+         HttpInterceptor,
+         HttpRequest,
+         HttpHandler,
+         HttpEvent,
+         HttpResponse,
+         HttpErrorResponse
 } from '@angular/common/http';
+import { LoaderService } from '../shared/loader.service';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
-    constructor() { }
+    constructor(public loaderService: LoaderService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        debugger;
         const token: string = localStorage.getItem('token');
-
+        this.loaderService.show();
         if (token) {
             request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });
         }
@@ -44,6 +45,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
                     status: error.status
                 };
                 return throwError(error);
-            }));
+            }),
+            finalize(() => this.loaderService.hide())
+            );
     }
 }

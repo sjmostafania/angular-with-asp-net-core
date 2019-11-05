@@ -9,7 +9,7 @@ using WebApi.Models;
 
 namespace WebApi.Migrations
 {
-    [DbContext(typeof(AuthenticationContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("13980526084443_InitialCreate")]
     partial class InitialCreate
     {

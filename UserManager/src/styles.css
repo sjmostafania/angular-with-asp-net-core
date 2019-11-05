@@ -1,176 +1,188 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-body{
-    font-family: Roboto;
-    background-color: #04c582!important;
+body {
+  font-family: Roboto, monospace;
+  background-color: #04c582!important;
 }
 
-input.form-control,input.form-control:focus{
-    background-color: #636b7b;
-    color: #fff;
-    border: 1px solid #636b7b;
-
+input.form-control, input.form-control:focus {
+  background-color: #636b7b;
+  color: #fff;
+  border: 1px solid #636b7b;
 }
 
-input.form-control:focus{
-    box-shadow: none;
+input.form-control:focus {
+  box-shadow: none;
 }
 
-button[type=submit].btn{
-    border-radius: 20px;
-    background-color: #04c582;
-    color: #fff;
+button[type=submit].btn {
+  border-radius: 20px;
+  background-color: #04c582;
+  color: #fff;
 }
 
-div.form-group label:not(.text-danger){
-    color: #545d6a;
-    font-weight: 700;
+div.form-group label:not(.text-danger) {
+  color: #545d6a;
+  font-weight: 700;
 }
 
-div.form-group.required>label:first-child:after{
-    content:'*';
-    color: #fff;
-    padding-left: 5px;
+div.form-group.required>label:first-child:after {
+  content: '*';
+  color: #fff;
+  padding-left: 5px;
 }
 
-#toast-container > div {
-    opacity:1;
+#toast-container>div {
+  opacity: 1;
 }
 
 .wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-  }
-
-  .wrapped-div {
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
-    background: #2e3137;
-    padding: 30px;
-    width: 90%;
-    max-width: 450px;
-    position: relative;
-    padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  }
-
-  /* Tabs */
-.tab-header{
-    text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
 }
 
-  .tab-header h2.active {
-    color: #fff;
-    border-bottom: 4px solid #fff;
-  }
+.wrapped-div {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #2e3137;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+}
 
-  .tab-header h2 {
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    display:inline-block;
-    padding: 30px 40px 10px 40px;
-    cursor: pointer;
-    color: #545d6a;
-    border-bottom: 2px solid #545d6a;
-  }
+/* Tabs */
 
-  .tab-header h2:focus {
-      outline: none;
-  }
+.tab-header {
+  text-align: center;
+}
 
-  form{
-      margin: 0px 16px;
-  }
+.tab-header h2.active {
+  color: #fff;
+  border-bottom: 4px solid #fff;
+}
 
- div.form-group input.invalid{
-    border: 1px solid #dc3545; 
- }
- div.form-group label:first-child{
-    text-transform: uppercase;
-    font-size: 0.9rem;
- }
+.tab-header h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 30px 40px 10px 40px;
+  cursor: pointer;
+  color: #545d6a;
+  border-bottom: 2px solid #545d6a;
+}
 
- .top-panel{
-    display: inline !important;
-    padding: 2rem !important;
-    }
-    
-    .primary-color {
-        color: #3F51B5!important;
-      }
-    .accent-color {
-        color: #FF4081!important;
-      }
-    .background-primary-color {
-        background-color: #3F51B5!important;
-      }
-    .background-accent-color {
-        background-color: #FF4081!important;
-      }
-    .white-text {
-        color: #FFF!important;
-    } 
-    
-    .ag-pinned-cols-viewport {
-        float: left;
-        position: absolute;
-        overflow: hidden;
-       }
-       .mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
-         color: aliceblue !important;
-       }
-       .mat-expansion-panel-header:not([aria-disabled=true]) {
-         background:#550fd6 !important;
-       }
-       .mat-expansion-panel-body{
-         padding-top: 2rem !important;
-       }
-       #btn-add,#btn-loadAll{
-        margin-right: 1rem;
-    
-       }
-       .mat-expansion-indicator::after, .mat-expansion-panel-header-description{
-        color: rgba(255, 249, 249, 0.54);
-       }
-    
-       .container  {
-        display: flex;
-        position: absolute;
-        top: 5rem;
-        left: 5rem;
-        height: 100%;
-        width: 100%;
-      }
-      
-      .container .row {
-        margin: 0 auto;
-      }
-    
-    
-    .basic-container {
-      padding: 30px;
-    }
-    
-    .version-info {
-      font-size: 8pt;
-      float: right;
-    }
-    
-    table {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        min-width: 500px;
-    }
-     
-    th.mat-header-cell {
-        text-align: left;
-        max-width: 300px;
-    }
+.tab-header h2:focus {
+  outline: none;
+}
+
+form {
+  margin: 0px 16px;
+}
+
+div.form-group input.invalid {
+  border: 1px solid #dc3545;
+}
+
+div.form-group label:first-child {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.top-panel {
+  display: inline !important;
+  padding: 2rem !important;
+}
+
+.primary-color {
+  color: #3F51B5!important;
+}
+
+.accent-color {
+  color: #FF4081!important;
+}
+
+.background-primary-color {
+  background-color: #3F51B5!important;
+}
+
+.background-accent-color {
+  background-color: #FF4081!important;
+}
+
+.white-text {
+  color: #FFF!important;
+}
+
+.ag-pinned-cols-viewport {
+  float: left;
+  position: absolute;
+  overflow: hidden;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+  color: aliceblue !important;
+}
+
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+  background: #550fd6 !important;
+}
+
+.mat-expansion-panel-body {
+  padding-top: 2rem !important;
+}
+
+#btn-add, #btn-loadAll {
+  margin: 1rem 1rem;
+  float: right;
+  width: 50px;
+  height: 50px;
+  outline:none;
+}
+
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description {
+  color: rgba(255, 249, 249, 0.54);
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.container .row {
+  margin: 0 auto;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}

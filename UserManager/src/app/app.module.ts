@@ -11,15 +11,23 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { RegistrationComponent } from './user/registration/registration.component';
+import { UserComponent } from './components/user/user.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
 import { UserService } from './shared/user.service';
-import { LoginComponent } from './user/login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 import { HttpConfigInterceptor } from './auth/httpconfig.interceptor';
 import { RouterModule } from '@angular/router';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/in_memory_service/in-memory-data.service';
+import { TicketService } from './shared/ticket_service/ticket.service';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderService } from './shared/loader.service';
+import { MessagesComponent } from './components/dialogs/messages/messages.component';
+import { DeleteConfirmationComponent } from './components/dialogs/delete-confirmation/delete-confirmation.component';
+import { EditeComponent } from './components/dialogs/edite/edite.component';
+import { InternalServerComponent } from './components/dialogs/error-page/internal-server/internal-server.component';
+import { CreateComponent } from './components/dialogs/create/create.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -34,35 +42,47 @@ export class MyHammerConfig extends HammerGestureConfig {
     UserComponent,
     RegistrationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LoaderComponent,
+    MessagesComponent,
+    DeleteConfirmationComponent,
+    EditeComponent,
+    InternalServerComponent,
+    CreateComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     MaterialModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     AngularFontAwesomeModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+
     ToastrModule.forRoot({
       progressBar: true
     }),
-    FormsModule
   ],
   providers: [
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig
     },
-    UserService, {
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpConfigInterceptor,
       multi: true
-    }
-
-
+    },
+    UserService,
+    TicketService,
+    LoaderService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DeleteConfirmationComponent,
+    EditeComponent,
+    CreateComponent
+  ]
 })
 export class AppModule { }
